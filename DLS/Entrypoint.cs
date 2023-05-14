@@ -153,16 +153,17 @@ namespace DLS
         {
             Vehicle veh = Game.LocalPlayer.Character.CurrentVehicle;
 
-            if (veh && veh.GetActiveVehicle() != null)
-            {
-                ActiveVehicle aVeh = veh.GetActiveVehicle();
-                Game.LogTrivial("Siren: " + aVeh.SirenStage.ToString());
-                Game.LogTrivial("Light: " + aVeh.LightStage.ToString());
-                Game.LogTrivial("TAStage: " + aVeh.TAStage.ToString());
-                Game.LogTrivial("SBOn: " + aVeh.SBOn.ToString());
-                Game.LogTrivial("TAstage: " + aVeh.TAgroup.TaPatterns[aVeh.TApatternCurrentIndex].Name);
-                Game.LogTrivial("ELName: " + veh.EmergencyLightingOverride.Name);
-            }
+            if (veh == null) return;
+            ActiveVehicle aVeh = veh.GetActiveVehicle();
+            if (aVeh == null) return;
+
+            Game.LogTrivial("Siren: " + aVeh.SirenStage.ToString());
+            Game.LogTrivial("Light: " + aVeh.LightStage.ToString());
+            Game.LogTrivial("TAStage: " + aVeh.TAStage.ToString());
+            Game.LogTrivial("SBOn: " + aVeh.SBOn.ToString());
+            Game.LogTrivial("TAstage: " + aVeh.TAgroup.TaPatterns[aVeh.TApatternCurrentIndex].Name);
+            Game.LogTrivial("ELName: " + veh.EmergencyLightingOverride.Name);
+
         }
     }
 }
