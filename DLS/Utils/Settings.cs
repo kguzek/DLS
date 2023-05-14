@@ -36,5 +36,11 @@ namespace DLS.Utils
             }
             return value;
         }
+
+        public static string[] ReadKeyArray(string sectionName, string keyName)
+        {
+            string rawKey = ReadKey(sectionName, keyName);
+            return rawKey.Replace(" ", "").Trim().Split(',');
+        }
     }
 }

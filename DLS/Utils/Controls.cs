@@ -149,7 +149,7 @@ namespace DLS.Utils
                 listKeys.Add(DLSControls.UI_TOGGLE, (Keys)Enum.Parse(typeof(Keys), Settings.ReadKey("Keyboard", "UIKey")));
                 ModKey = Settings.ReadKey("Keyboard", "Modifier");
 
-                string[] disabledControls = Settings.ReadKey("Keyboard", "Disabled").Replace(" ", "").Trim().Split(',');
+                string[] disabledControls = Settings.ReadKeyArray("Keyboard", "Disabled");
                 foreach (string control in disabledControls)
                     DisabledControls.Add(control.ToInt32());
             }
