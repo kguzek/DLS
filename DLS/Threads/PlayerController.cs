@@ -626,8 +626,9 @@ namespace DLS.Threads
                             {
                                 Controls.DisableControls();
                                 #region Lights Manager
+                                bool killSirensOnLeave = Settings.ReadKey("Settings", "SirenKill").ToBoolean();
                                 if ((Game.IsKeyDown(Keys.F) || Game.IsControllerButtonDown(ControllerButtons.Y))
-                                    && Vehicles.GetSirenKill(activeVeh) && activeVeh.SirenStage != SirenStage.Off)
+                                    && killSirensOnLeave && activeVeh.SirenStage != SirenStage.Off)
                                 {
                                     activeVeh.SirenStage = SirenStage.Off;
                                     Utils.Sirens.Update(activeVeh);
